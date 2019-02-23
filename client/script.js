@@ -3,17 +3,27 @@
 (function () {
     const ASC_ORDER = 'asc';
     const DESC_ORDER = 'desc';
+    let data = {};
 
     const TABLE_CONTAINER = document.getElementById('data_table');
-    showTable(TABLE_CONTAINER, createTable(getData()));
+    loadData().then(() => {
+        showTable(TABLE_CONTAINER, createTable(getData()));
+    });
+
+    function loadData() {
+        return new Promise((resolve) => {
+	    const req = new XMLHttpRequest();
+	    req.onload = () => {
+	        data = JSON.parse(req.responseText);
+	        resolve();
+	    };
+	    req.open('GET', './item');
+	    req.send();
+	});
+    }
 
     function getData () {
-        return [
-            {id: 1, name: '12', price: 5, count: 2},
-            {id: 2, name: '240', price: 240, count: 1},
-            {id: 3, name: '25', price: 25, count: 6},
-            {id: 4, name: '42', price: 5, count: 4}
-        ];
+        return data;
     }
 
     function calcAmount(item) {

@@ -1,5 +1,6 @@
 [
-  {"name":"item1", "price":"44"},
-  {"name":"item2", "price":"62"},
-  {"name":"item3", "price":"114"}
+    {"id": 1, "name": "12", "price": 5, "count": 2}, 
+    {"id": 2, "name": "240", "price": 240, "count": 1},
+    {"id": 3, "name": "25", "price": 25, "count": 6},
+    {"id": 4, "name": "42", "price": 5, "count": 4}
 ]
